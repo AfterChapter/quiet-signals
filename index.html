@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listening for the Quiet Signals — The After Chapter</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -6,379 +12,355 @@
   --cream:#F5E6B8;--cream-dark:#eddfa0;--charcoal:#2C2C2C;--slate:#5a4a3a;
   --teal:#0D6B54;--coral:#8B3520;--red:#8B2020;--white:#ffffff;
 }
-body { counter-reset: score; }
-#id1:checked { counter-increment: score; }
-#id2:checked { counter-increment: score; }
-#id3:checked { counter-increment: score; }
-#id4:checked { counter-increment: score; }
-#id5:checked { counter-increment: score; }
-#id6:checked { counter-increment: score; }
-#id7:checked { counter-increment: score; }
-#id8:checked { counter-increment: score; }
-#id9:checked { counter-increment: score; }
-#id10:checked { counter-increment: score; }
-#en1:checked { counter-increment: score; }
-#en2:checked { counter-increment: score; }
-#en3:checked { counter-increment: score; }
-#en4:checked { counter-increment: score; }
-#en5:checked { counter-increment: score; }
-#en6:checked { counter-increment: score; }
-#en7:checked { counter-increment: score; }
-#en8:checked { counter-increment: score; }
-#en9:checked { counter-increment: score; }
-#en10:checked { counter-increment: score; }
-#re1:checked { counter-increment: score; }
-#re2:checked { counter-increment: score; }
-#re3:checked { counter-increment: score; }
-#re4:checked { counter-increment: score; }
-#re5:checked { counter-increment: score; }
-#re6:checked { counter-increment: score; }
-#re7:checked { counter-increment: score; }
-#re8:checked { counter-increment: score; }
-#re9:checked { counter-increment: score; }
-#re10:checked { counter-increment: score; }
-.score-num::before { content: counter(score); }
-.sig-cb{display:none!important;position:absolute!important;opacity:0!important;pointer-events:none!important;}
-.qs-wrap{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);display:block;width:100%;}
-.qs-hero{background:var(--burg);padding:48px 24px 44px;text-align:center;position:relative;overflow:hidden;}
-.qs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 0%,rgba(196,137,58,.15) 0%,transparent 60%);pointer-events:none;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);min-height:100vh;overflow-x:hidden;}
  
-.qs-logo{height:72px;margin-bottom:18px;border-radius:4px;}
-.qs-eye{font-size:9px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-.qs-h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,5vw,46px);color:#fff;line-height:1.15;margin-bottom:6px;}
+/* HERO */
+.qs-hero{background:var(--burg);padding:56px 32px 48px;text-align:center;position:relative;overflow:hidden;}
+.qs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 0%,rgba(196,137,58,.15) 0%,transparent 60%),radial-gradient(ellipse at 10% 100%,rgba(196,137,58,.08) 0%,transparent 50%);pointer-events:none;}
+.qs-logo{height:80px;margin-bottom:20px;border-radius:4px;opacity:0;animation:fadeUp .7s ease .05s forwards;}
+.qs-eye{font-size:9px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;opacity:0;animation:fadeUp .7s ease .1s forwards;}
+.qs-h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,5vw,50px);color:#fff;line-height:1.15;margin-bottom:6px;opacity:0;animation:fadeUp .7s ease .25s forwards;}
 .qs-h1 em{color:var(--gold);font-style:italic;}
-.qs-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,.5);margin-bottom:20px;}
-.qs-rule{width:38px;height:1px;background:var(--gold);margin:0 auto 18px;}
-.qs-intro{max-width:520px;margin:0 auto 24px;font-size:13px;line-height:1.75;color:rgba(255,255,255,.7);}
-.how-box{max-width:540px;margin:0 auto;background:var(--burg-deep);border:1px solid rgba(196,137,58,.3);border-radius:4px;padding:14px 18px;font-size:12px;line-height:1.7;color:rgba(255,255,255,.65);text-align:left;}
+.qs-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(255,255,255,.5);margin-bottom:22px;opacity:0;animation:fadeUp .7s ease .38s forwards;}
+.qs-rule{width:40px;height:1px;background:var(--gold);margin:0 auto 20px;opacity:0;animation:fadeUp .7s ease .45s forwards;}
+.qs-intro{max-width:540px;margin:0 auto 26px;font-size:13.5px;line-height:1.75;color:rgba(255,255,255,.7);opacity:0;animation:fadeUp .7s ease .55s forwards;}
+.how-box{max-width:560px;margin:0 auto;background:var(--burg-deep);border:1px solid rgba(196,137,58,.3);border-radius:4px;padding:16px 20px;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.65);text-align:left;opacity:0;animation:fadeUp .7s ease .7s forwards;}
 .how-box strong{color:var(--gold-light);}
-.score-bar{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--cream-dark);padding:9px 20px;display:flex;align-items:center;gap:12px;}
+ 
+/* SCORE BAR */
+.score-bar{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--cream-dark);padding:10px 24px;display:flex;align-items:center;gap:14px;}
 .score-lbl{font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--slate);white-space:nowrap;}
-.score-num{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--burg);min-width:28px;text-align:right;}
-.score-note{font-size:10.5px;color:var(--slate);font-style:italic;}
-.qs-content{max-width:660px!important;margin:0 auto!important;padding:36px 18px 56px!important;display:block!important;width:100%!important;}
-.cat-hdr{display:flex;align-items:center;gap:10px;margin-bottom:4px;}
+.score-track{flex:1;height:4px;background:var(--cream-dark);border-radius:2px;overflow:hidden;}
+.score-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold),var(--red));border-radius:2px;width:0%;transition:width .4s ease;}
+.score-count{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--burg);min-width:32px;text-align:right;}
+ 
+/* CONTENT */
+.qs-content{max-width:680px;margin:0 auto;padding:44px 20px 60px;}
+.cat-hdr{display:flex;align-items:center;gap:11px;margin-bottom:4px;}
 .cat-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
 .cat-title{font-size:9px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;}
-.cat-intro{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5px;color:var(--slate);margin:4px 0 14px 20px;line-height:1.6;}
-.cat-block{margin-bottom:36px;}
-.statement{display:flex!important;align-items:flex-start!important;gap:11px!important;padding:11px 13px!important;margin-bottom:6px!important;border-radius:4px!important;cursor:pointer!important;border:1.5px solid transparent!important;background:#fff!important;transition:all .15s ease!important;user-select:none!important;width:100%!important;}
-.statement:hover{border-color:rgba(196,137,58,.35);}
-.stmt-check{width:18px;height:18px;border:1.5px solid var(--cream-dark);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;background:var(--cream);transition:all .15s ease;}
+.cat-intro{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--slate);margin:4px 0 16px 22px;line-height:1.6;}
+.cat-block{margin-bottom:38px;}
+ 
+/* STATEMENTS */
+.statement{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;margin-bottom:7px;border-radius:4px;cursor:pointer;border:1.5px solid transparent;background:#fff;transition:all .15s ease;user-select:none;}
+.statement:hover{border-color:rgba(196,137,58,.35);background:#fffdf7;}
+.statement.checked{background:var(--burg);border-color:var(--burg);}
+.statement.checked .stmt-text{color:#fff;}
+.stmt-check{width:19px;height:19px;border:1.5px solid var(--cream-dark);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;background:var(--cream);transition:all .15s ease;}
 .stmt-check svg{opacity:0;transition:opacity .12s ease;}
-.stmt-text{font-size:13px!important;line-height:1.65!important;color:#2C2C2C!important;display:inline!important;visibility:visible!important;transition:color .15s ease;}
-#id1:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id1:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id1:checked + label .stmt-check svg { opacity: 1; }
-#id1:checked + label .stmt-text { color: #ffffff; }
-#id2:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id2:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id2:checked + label .stmt-check svg { opacity: 1; }
-#id2:checked + label .stmt-text { color: #ffffff; }
-#id3:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id3:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id3:checked + label .stmt-check svg { opacity: 1; }
-#id3:checked + label .stmt-text { color: #ffffff; }
-#id4:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id4:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id4:checked + label .stmt-check svg { opacity: 1; }
-#id4:checked + label .stmt-text { color: #ffffff; }
-#id5:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id5:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id5:checked + label .stmt-check svg { opacity: 1; }
-#id5:checked + label .stmt-text { color: #ffffff; }
-#id6:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id6:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id6:checked + label .stmt-check svg { opacity: 1; }
-#id6:checked + label .stmt-text { color: #ffffff; }
-#id7:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id7:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id7:checked + label .stmt-check svg { opacity: 1; }
-#id7:checked + label .stmt-text { color: #ffffff; }
-#id8:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id8:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id8:checked + label .stmt-check svg { opacity: 1; }
-#id8:checked + label .stmt-text { color: #ffffff; }
-#id9:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id9:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id9:checked + label .stmt-check svg { opacity: 1; }
-#id9:checked + label .stmt-text { color: #ffffff; }
-#id10:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#id10:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#id10:checked + label .stmt-check svg { opacity: 1; }
-#id10:checked + label .stmt-text { color: #ffffff; }
-#en1:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en1:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en1:checked + label .stmt-check svg { opacity: 1; }
-#en1:checked + label .stmt-text { color: #ffffff; }
-#en2:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en2:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en2:checked + label .stmt-check svg { opacity: 1; }
-#en2:checked + label .stmt-text { color: #ffffff; }
-#en3:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en3:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en3:checked + label .stmt-check svg { opacity: 1; }
-#en3:checked + label .stmt-text { color: #ffffff; }
-#en4:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en4:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en4:checked + label .stmt-check svg { opacity: 1; }
-#en4:checked + label .stmt-text { color: #ffffff; }
-#en5:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en5:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en5:checked + label .stmt-check svg { opacity: 1; }
-#en5:checked + label .stmt-text { color: #ffffff; }
-#en6:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en6:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en6:checked + label .stmt-check svg { opacity: 1; }
-#en6:checked + label .stmt-text { color: #ffffff; }
-#en7:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en7:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en7:checked + label .stmt-check svg { opacity: 1; }
-#en7:checked + label .stmt-text { color: #ffffff; }
-#en8:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en8:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en8:checked + label .stmt-check svg { opacity: 1; }
-#en8:checked + label .stmt-text { color: #ffffff; }
-#en9:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en9:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en9:checked + label .stmt-check svg { opacity: 1; }
-#en9:checked + label .stmt-text { color: #ffffff; }
-#en10:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#en10:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#en10:checked + label .stmt-check svg { opacity: 1; }
-#en10:checked + label .stmt-text { color: #ffffff; }
-#re1:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re1:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re1:checked + label .stmt-check svg { opacity: 1; }
-#re1:checked + label .stmt-text { color: #ffffff; }
-#re2:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re2:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re2:checked + label .stmt-check svg { opacity: 1; }
-#re2:checked + label .stmt-text { color: #ffffff; }
-#re3:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re3:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re3:checked + label .stmt-check svg { opacity: 1; }
-#re3:checked + label .stmt-text { color: #ffffff; }
-#re4:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re4:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re4:checked + label .stmt-check svg { opacity: 1; }
-#re4:checked + label .stmt-text { color: #ffffff; }
-#re5:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re5:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re5:checked + label .stmt-check svg { opacity: 1; }
-#re5:checked + label .stmt-text { color: #ffffff; }
-#re6:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re6:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re6:checked + label .stmt-check svg { opacity: 1; }
-#re6:checked + label .stmt-text { color: #ffffff; }
-#re7:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re7:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re7:checked + label .stmt-check svg { opacity: 1; }
-#re7:checked + label .stmt-text { color: #ffffff; }
-#re8:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re8:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re8:checked + label .stmt-check svg { opacity: 1; }
-#re8:checked + label .stmt-text { color: #ffffff; }
-#re9:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re9:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re9:checked + label .stmt-check svg { opacity: 1; }
-#re9:checked + label .stmt-text { color: #ffffff; }
-#re10:checked + label.statement { background: #7A1C1C; border-color: #7A1C1C; }
-#re10:checked + label .stmt-check { background: #C4893A; border-color: #C4893A; }
-#re10:checked + label .stmt-check svg { opacity: 1; }
-#re10:checked + label .stmt-text { color: #ffffff; }
-.qs-divider{width:100%;height:1px;background:var(--cream-dark);margin:28px 0;}
-.results-title{font-size:9px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
-.results-sub{font-family:'Cormorant Garamond',serif;font-size:14.5px;color:var(--slate);font-style:italic;margin-bottom:18px;line-height:1.6;}
-.stage-card{border-radius:4px;overflow:hidden;margin-bottom:12px;}
-.stage-hdr{padding:18px 22px 14px;color:#fff;}
-.stage-range{font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;opacity:.7;margin-bottom:5px;}
-.stage-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(22px,4vw,32px);line-height:1.15;}
-.stage-body{background:#fff;padding:16px 22px;font-family:'Cormorant Garamond',serif;font-size:15px;line-height:1.75;color:var(--charcoal);}
-.oprah-block{background:var(--burg);border-radius:4px;padding:22px 26px;margin:18px 0;}
-.oprah-eye{font-size:8.5px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.oprah-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;line-height:1.8;color:rgba(255,255,255,.8);}
-.oprah-attr{margin-top:9px;font-size:10px;color:var(--gold);}
-.next-block{background:var(--cream-dark);border-radius:4px;padding:22px 26px;margin-top:12px;}
-.next-title{font-size:9px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--burg);margin-bottom:12px;}
-.next-item{display:flex;gap:11px;align-items:flex-start;margin-bottom:10px;}
-.next-num{width:21px;height:21px;background:var(--burg);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:500;flex-shrink:0;}
-.next-txt{font-size:12.5px;line-height:1.65;color:var(--charcoal);}
+.statement.checked .stmt-check{background:var(--gold);border-color:var(--gold);}
+.statement.checked .stmt-check svg{opacity:1;}
+.stmt-text{font-size:13px;line-height:1.65;color:var(--charcoal);transition:color .15s ease;}
+ 
+/* CTA */
+.cta-wrap{text-align:center;margin-top:16px;padding-top:32px;border-top:1px solid var(--cream-dark);}
+.cta-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--slate);margin-bottom:20px;}
+.btn-results{display:inline-block;background:var(--burg);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:16px 40px;border:none;border-radius:2px;cursor:pointer;transition:all .2s ease;}
+.btn-results:hover{background:var(--gold);color:var(--burg);}
+ 
+/* RESULTS */
+.results-panel{display:none;max-width:680px;margin:0 auto;padding:0 20px 80px;}
+.results-panel.visible{display:block;}
+.result-card{border-radius:4px;overflow:hidden;margin-bottom:20px;animation:fadeUp .6s ease forwards;}
+.result-header{padding:28px 28px 22px;color:#fff;}
+.result-stage-label{font-size:9px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;opacity:.7;margin-bottom:7px;}
+.result-stage-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,4vw,38px);line-height:1.15;}
+.result-body{background:#fff;padding:24px 28px;font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.75;color:var(--charcoal);}
+ 
+/* SUBSCRIBE BLOCK */
+.subscribe-block{background:var(--cream-dark);border-radius:4px;padding:26px 28px;margin-bottom:18px;text-align:center;animation:fadeUp .6s ease .1s both;}
+.subscribe-block p{font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.75;color:var(--charcoal);margin-bottom:16px;}
+.btn-subscribe{display:inline-block;background:var(--burg);color:var(--gold);font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:13px 32px;border-radius:2px;text-decoration:none;transition:all .2s ease;}
+.btn-subscribe:hover{background:var(--gold);color:var(--burg);}
+ 
+/* OPRAH */
+.oprah-block{background:var(--burg);border-radius:4px;padding:26px 28px;margin-bottom:18px;animation:fadeUp .6s ease .2s both;}
+.oprah-eye{font-size:8.5px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.oprah-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;line-height:1.8;color:rgba(255,255,255,.8);}
+.oprah-attr{margin-top:10px;font-size:10.5px;color:var(--gold);}
+ 
+/* NEXT STEPS */
+.next-block{background:var(--cream-dark);border-radius:4px;padding:26px 28px;animation:fadeUp .6s ease .3s both;}
+.next-title{font-size:9px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--burg);margin-bottom:14px;}
+.next-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;}
+.next-num{width:22px;height:22px;background:var(--burg);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;flex-shrink:0;}
+.next-txt{font-size:13px;line-height:1.65;color:var(--charcoal);}
 .next-txt a{color:var(--burg);font-weight:500;text-decoration:underline;text-underline-offset:3px;}
-.qs-footer{text-align:center;padding:24px 18px;border-top:1px solid var(--cream-dark);font-size:10px;color:var(--slate);}
+ 
+/* RETAKE */
+.btn-retake{display:inline-block;background:transparent;color:var(--burg);font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:13px 30px;border:1.5px solid var(--burg);border-radius:2px;cursor:pointer;transition:all .2s ease;margin-top:20px;}
+.btn-retake:hover{background:var(--burg);color:var(--gold);}
+ 
+/* FOOTER */
+.qs-footer{text-align:center;padding:28px 20px;border-top:1px solid var(--cream-dark);font-size:10.5px;color:var(--slate);}
 .qs-footer a{color:var(--burg);font-weight:500;text-decoration:none;}
-@media(max-width:480px){.qs-hero{padding:36px 16px 32px;}.stage-hdr,.stage-body,.oprah-block,.next-block{padding:16px 18px;}}
+ 
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:480px){.qs-hero{padding:40px 18px 36px;}.result-header,.result-body,.oprah-block,.next-block,.subscribe-block{padding:18px 20px;}}
 </style>
+</head>
+<body>
  
-<div class="qs-wrap" style="width:100%;display:block;overflow:visible;">
-  <div class="qs-hero">
-    
-    <img src="https://afterchapter.github.io/quiet-signals/Simple%20Bookmark%20(wine).jpg" alt="The After Chapter" class="qs-logo">
-    <p class="qs-eye">The After Chapter &nbsp;&middot;&nbsp; Proprietary Framework</p>
-    <h1 class="qs-h1">Listening for the <em>Quiet Signals</em></h1>
-    <p class="qs-sub">A Self-Assessment for Anyone in Transition</p>
-    <div class="qs-rule"></div>
-    <p class="qs-intro">Most transitions do not arrive without warning. They arrive in stages &mdash; first as a whisper you can almost ignore, then as something louder you can no longer pretend you did not hear. This assessment helps you identify where you are in that arc.</p>
-    <div class="how-box"><strong>How to use this:</strong> Check every statement that feels true &mdash; even partially true. Your score updates at the top as you go. When you are done, find your stage in the results below.</div>
-  </div>
- 
-  <div class="score-bar">
-    <span class="score-lbl">Signals checked</span>
-    <span class="score-num"></span>
-    <span class="score-note">Scroll down to find your stage</span>
-  </div>
- 
-  <div class="qs-content">
-    <div class="cat-block">
-      <div class="cat-hdr">
-        <div class="cat-dot" style="background:#0D6B54"></div>
-        <span class="cat-title" style="color:#0D6B54">Identity Signals</span>
-      </div>
-      <p class="cat-intro">These statements surface how clearly you can locate yourself outside of your role.</p>
-      <input type="checkbox" id="id1" class="sig-cb">
-<label for="id1" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I cannot answer the question &ldquo;tell me about yourself&rdquo; without defaulting to work or family as the predominant part of my answer.</span></label>
-<input type="checkbox" id="id2" class="sig-cb">
-<label for="id2" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">My sense of purpose feels closely tied to my job title or organizational affiliation.</span></label>
-<input type="checkbox" id="id3" class="sig-cb">
-<label for="id3" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">When I meet someone new, I feel uncomfortable or at a loss if I cannot lead with what I do professionally.</span></label>
-<input type="checkbox" id="id4" class="sig-cb">
-<label for="id4" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have described myself as &ldquo;between things&rdquo; or &ldquo;figuring out my next move&rdquo; for longer than feels comfortable.</span></label>
-<input type="checkbox" id="id5" class="sig-cb">
-<label for="id5" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">When I try to describe what I value most, I notice I am describing what I have done, not who I am.</span></label>
-<input type="checkbox" id="id6" class="sig-cb">
-<label for="id6" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I feel a quiet grief about a version of myself I have not fully acknowledged losing.</span></label>
-<input type="checkbox" id="id7" class="sig-cb">
-<label for="id7" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I find it difficult to make decisions about my future without knowing what my title or role will be.</span></label>
-<input type="checkbox" id="id8" class="sig-cb">
-<label for="id8" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I measure my progress or worth by metrics that no longer feel meaningful to me.</span></label>
-<input type="checkbox" id="id9" class="sig-cb">
-<label for="id9" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have caught myself performing confidence or certainty I do not actually feel.</span></label>
-<input type="checkbox" id="id10" class="sig-cb">
-<label for="id10" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">The question &ldquo;what do you want?&rdquo; &mdash; not &ldquo;what are you qualified for?&rdquo; &mdash; genuinely stumps me.</span></label>
-    </div>
-    <div class="cat-block">
-      <div class="cat-hdr">
-        <div class="cat-dot" style="background:#B07315"></div>
-        <span class="cat-title" style="color:#B07315">Environmental Signals</span>
-      </div>
-      <p class="cat-intro">These statements surface how your environment has been working on you &mdash; often below the surface.</p>
-      <input type="checkbox" id="en1" class="sig-cb">
-<label for="en1" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have felt consistently underestimated, overlooked, or invisible in professional settings.</span></label>
-<input type="checkbox" id="en2" class="sig-cb">
-<label for="en2" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have adjusted my communication style, presentation, or personality to be taken seriously.</span></label>
-<input type="checkbox" id="en3" class="sig-cb">
-<label for="en3" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have stayed in situations longer than was healthy because leaving felt too risky or uncertain.</span></label>
-<input type="checkbox" id="en4" class="sig-cb">
-<label for="en4" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have watched people with less experience or skill advance past me and told myself it was fine.</span></label>
-<input type="checkbox" id="en5" class="sig-cb">
-<label for="en5" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I feel or have felt that I need to work twice as hard to receive half the recognition.</span></label>
-<input type="checkbox" id="en6" class="sig-cb">
-<label for="en6" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have absorbed feedback about my &ldquo;style&rdquo; or &ldquo;presence&rdquo; that had nothing to do with my results.</span></label>
-<input type="checkbox" id="en7" class="sig-cb">
-<label for="en7" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have felt responsible for managing other people&rsquo;s comfort with my ambition, success, or directness.</span></label>
-<input type="checkbox" id="en8" class="sig-cb">
-<label for="en8" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have experienced a significant professional setback that I have not fully processed.</span></label>
-<input type="checkbox" id="en9" class="sig-cb">
-<label for="en9" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I carry the weight of representation &mdash; the sense that my performance reflects on a group, not just me.</span></label>
-<input type="checkbox" id="en10" class="sig-cb">
-<label for="en10" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have felt the relief of leaving a room and finally being able to exhale.</span></label>
-    </div>
-    <div class="cat-block">
-      <div class="cat-hdr">
-        <div class="cat-dot" style="background:#8B3520"></div>
-        <span class="cat-title" style="color:#8B3520">Readiness Signals</span>
-      </div>
-      <p class="cat-intro">These statements surface your proximity to change &mdash; how close you already are to what comes next.</p>
-      <input type="checkbox" id="re1" class="sig-cb">
-<label for="re1" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have started imagining a different version of my professional life, even if I have not said it out loud.</span></label>
-<input type="checkbox" id="re2" class="sig-cb">
-<label for="re2" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I find myself more interested in conversations about meaning, legacy, or impact than about titles or compensation.</span></label>
-<input type="checkbox" id="re3" class="sig-cb">
-<label for="re3" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have had the thought, &ldquo;I don&rsquo;t think I can keep doing this the way I&rsquo;ve been doing it.&rdquo;</span></label>
-<input type="checkbox" id="re4" class="sig-cb">
-<label for="re4" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I feel more alive in certain conversations, environments, or projects &mdash; and I have noticed the contrast.</span></label>
-<input type="checkbox" id="re5" class="sig-cb">
-<label for="re5" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have done quiet research: reading, listening, or exploring options without telling anyone.</span></label>
-<input type="checkbox" id="re6" class="sig-cb">
-<label for="re6" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I know, somewhere, that something needs to change &mdash; I am just not sure what it is yet.</span></label>
-<input type="checkbox" id="re7" class="sig-cb">
-<label for="re7" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have a skill, perspective, or body of knowledge I have not fully deployed or claimed.</span></label>
-<input type="checkbox" id="re8" class="sig-cb">
-<label for="re8" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I am more risk-tolerant than I used to be, or more risk-averse &mdash; either shift feels significant.</span></label>
-<input type="checkbox" id="re9" class="sig-cb">
-<label for="re9" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I have caught myself romanticizing what it would feel like to start over or start something new.</span></label>
-<input type="checkbox" id="re10" class="sig-cb">
-<label for="re10" class="statement"><span class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="stmt-text">I am here, in this space, because part of me already knows it is time.</span></label>
-    </div>
- 
-    <div class="qs-divider"></div>
- 
-    <p class="results-title">Your Results</p>
-    <p class="results-sub">Look at your score above. Find the stage that matches your count below.</p>
- 
-    <div class="stage-card">
-      <div class="stage-hdr" style="background:#0D6B54">
-        <p class="stage-range">Stage 1 &nbsp;&middot;&nbsp; 1 to 5 signals</p>
-        <p class="stage-name">The Whisper</p>
-      </div>
-      <div class="stage-body">Something is asking for your attention &mdash; quietly. You may be tempted to explain it away. The fact that you are paying attention at all is more than most people allow themselves. Stay here. Keep listening.</div>
-    </div>
- 
-    <div class="stage-card">
-      <div class="stage-hdr" style="background:#B07315">
-        <p class="stage-range">Stage 2 &nbsp;&middot;&nbsp; 6 to 10 signals</p>
-        <p class="stage-name">The Nudge</p>
-      </div>
-      <div class="stage-body">The signals are becoming harder to dismiss. The transition may have already started &mdash; you just have not named it yet. This stage requires honesty more than it requires a plan. Give yourself permission to know what you know.</div>
-    </div>
- 
-    <div class="stage-card">
-      <div class="stage-hdr" style="background:#8B3520">
-        <p class="stage-range">Stage 3 &nbsp;&middot;&nbsp; 11 to 14 signals</p>
-        <p class="stage-name">The Alarm</p>
-      </div>
-      <div class="stage-body">Multiple systems are telling you the same thing. This is not coincidence. The question is no longer whether something needs to change &mdash; it is what you are willing to do with that knowledge. You are not behind. You are awake.</div>
-    </div>
- 
-    <div class="stage-card">
-      <div class="stage-hdr" style="background:#8B2020">
-        <p class="stage-range">Stage 4 &nbsp;&middot;&nbsp; 15 to 30 signals</p>
-        <p class="stage-name">Code Red &nbsp;&middot;&nbsp; You Knew It All Along</p>
-      </div>
-      <div class="stage-body">You did not miss the signs. You survived them. Like Dorothy, you had what you needed the whole time &mdash; you just had not been given permission to use it. What you are feeling is not weakness. It is the result of operating in an environment that was not built for you, for longer than was sustainable.</div>
-    </div>
- 
-    <div style="background:#eddfa0;border-radius:4px;padding:22px 26px;margin:14px 0;text-align:center;">
-      <p style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.75;color:#2C2C2C;margin-bottom:14px;">Enjoyed this assessment? Subscribe to <strong>The After Chapter newsletter</strong>, where we help you look beyond your title, identify where you are in your arc, and start listening to what is actually true. Join us for conversations, workshops, and live events designed for exactly where you are right now.</p>
-      <a href="https://the-after-chapter-newsletter.beehiiv.com" target="_blank" style="display:inline-block;background:#7A1C1C;color:#C4893A;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:13px 32px;border-radius:2px;text-decoration:none;">Subscribe to the Newsletter</a>
-    </div>
- 
-        <div class="oprah-block">
-      <p class="oprah-eye">On the stages of knowing</p>
-      <p class="oprah-q">&ldquo;Life speaks to you first in whispers. If you ignore the whisper, it becomes a pebble. If you ignore the pebble, it becomes a brick. If you ignore the brick, it becomes a wall.&rdquo;</p>
-      <p class="oprah-attr">&mdash; Oprah Winfrey</p>
-    </div>
- 
-    <div class="next-block">
-      <p class="next-title">What to do with this</p>
-      <div class="next-item">
-        <div class="next-num">1</div>
-        <p class="next-txt">Listen to <strong>The After Chapter podcast</strong> &mdash; conversations built for exactly where you are right now. Find us wherever you listen to podcasts.</p>
-      </div>
-      <div class="next-item">
-        <div class="next-num">2</div>
-        <p class="next-txt">Explore more at <a href="https://linktr.ee/afterchapterpodcast" target="_blank">linktr.ee/afterchapterpodcast</a> or subscribe to <a href="https://the-after-chapter-newsletter.beehiiv.com" target="_blank">our newsletter</a>.</p>
-      </div>
-      <div class="next-item">
-        <div class="next-num">3</div>
-        <p class="next-txt">Share this assessment with someone in your circle who you suspect has been ignoring the whisper.</p>
-      </div>
-    </div>
-  </div>
- 
-  <footer class="qs-footer">
-    <p>The After Chapter &nbsp;&middot;&nbsp; <a href="https://linktr.ee/afterchapterpodcast">linktr.ee/afterchapterpodcast</a> &nbsp;&middot;&nbsp; <a href="https://the-after-chapter-newsletter.beehiiv.com">Newsletter</a></p>
-    <p style="margin-top:5px">&ldquo;Listening for the Quiet Signals&rdquo; is a proprietary framework. All rights reserved. &copy; 2026</p>
-  </footer>
+<!-- HERO -->
+<div class="qs-hero">
+  <img src="https://afterchapter.github.io/quiet-signals/Simple%20Bookmark%20(wine).jpg" alt="The After Chapter" class="qs-logo">
+  <p class="qs-eye">The After Chapter &nbsp;&middot;&nbsp; Proprietary Framework</p>
+  <h1 class="qs-h1">Listening for the <em>Quiet Signals</em></h1>
+  <p class="qs-sub">A Self-Assessment for Anyone in Transition</p>
+  <div class="qs-rule"></div>
+  <p class="qs-intro">Most transitions do not arrive without warning. They arrive in stages &mdash; first as a whisper you can almost ignore, then as something louder you can no longer pretend you did not hear. This assessment helps you identify where you are in that arc.</p>
+  <div class="how-box"><strong>How to use this:</strong> Check every statement that feels true &mdash; even partially true. When you are done, click <strong>See My Results</strong> to find your stage.</div>
 </div>
  
+<!-- SCORE BAR -->
+<div class="score-bar">
+  <span class="score-lbl">Signals checked</span>
+  <div class="score-track"><div class="score-fill" id="scoreFill"></div></div>
+  <span class="score-count" id="scoreCount">0</span>
+</div>
+ 
+<!-- ASSESSMENT -->
+<div class="qs-content" id="assessmentSection">
+ 
+  <!-- IDENTITY SIGNALS -->
+  <div class="cat-block">
+    <div class="cat-hdr">
+      <div class="cat-dot" style="background:#0D6B54"></div>
+      <span class="cat-title" style="color:#0D6B54">Identity Signals</span>
+    </div>
+    <p class="cat-intro">These statements surface how clearly you can locate yourself outside of your role.</p>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I cannot answer the question &ldquo;tell me about yourself&rdquo; without defaulting to work or family as the predominant part of my answer.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">My sense of purpose feels closely tied to my job title or organizational affiliation.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">When I meet someone new, I feel uncomfortable or at a loss if I cannot lead with what I do professionally.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have described myself as &ldquo;between things&rdquo; or &ldquo;figuring out my next move&rdquo; for longer than feels comfortable.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">When I try to describe what I value most, I notice I am describing what I have done, not who I am.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I feel a quiet grief about a version of myself I have not fully acknowledged losing.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I find it difficult to make decisions about my future without knowing what my title or role will be.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I measure my progress or worth by metrics that no longer feel meaningful to me.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have caught myself performing confidence or certainty I do not actually feel.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">The question &ldquo;what do you want?&rdquo; &mdash; not &ldquo;what are you qualified for?&rdquo; &mdash; genuinely stumps me.</span>
+    </div>
+  </div>
+ 
+  <!-- ENVIRONMENTAL SIGNALS -->
+  <div class="cat-block">
+    <div class="cat-hdr">
+      <div class="cat-dot" style="background:#B07315"></div>
+      <span class="cat-title" style="color:#B07315">Environmental Signals</span>
+    </div>
+    <p class="cat-intro">These statements surface how your environment has been working on you &mdash; often below the surface.</p>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have felt consistently underestimated, overlooked, or invisible in professional settings.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have adjusted my communication style, presentation, or personality to be taken seriously.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have stayed in situations longer than was healthy because leaving felt too risky or uncertain.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have watched people with less experience or skill advance past me and told myself it was fine.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I feel or have felt that I need to work twice as hard to receive half the recognition.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have absorbed feedback about my &ldquo;style&rdquo; or &ldquo;presence&rdquo; that had nothing to do with my results.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have felt responsible for managing other people&rsquo;s comfort with my ambition, success, or directness.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have experienced a significant professional setback that I have not fully processed.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I carry the weight of representation &mdash; the sense that my performance reflects on a group, not just me.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have felt the relief of leaving a room and finally being able to exhale.</span>
+    </div>
+  </div>
+ 
+  <!-- READINESS SIGNALS -->
+  <div class="cat-block">
+    <div class="cat-hdr">
+      <div class="cat-dot" style="background:#8B3520"></div>
+      <span class="cat-title" style="color:#8B3520">Readiness Signals</span>
+    </div>
+    <p class="cat-intro">These statements surface your proximity to change &mdash; how close you already are to what comes next.</p>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have started imagining a different version of my professional life, even if I have not said it out loud.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I find myself more interested in conversations about meaning, legacy, or impact than about titles or compensation.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have had the thought, &ldquo;I don&rsquo;t think I can keep doing this the way I&rsquo;ve been doing it.&rdquo;</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I feel more alive in certain conversations, environments, or projects &mdash; and I have noticed the contrast.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have done quiet research: reading, listening, or exploring options without telling anyone.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I know, somewhere, that something needs to change &mdash; I am just not sure what it is yet.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have a skill, perspective, or body of knowledge I have not fully deployed or claimed.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I am more risk-tolerant than I used to be, or more risk-averse &mdash; either shift feels significant.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I have caught myself romanticizing what it would feel like to start over or start something new.</span>
+    </div>
+    <div class="statement" onclick="toggle(this)">
+      <div class="stmt-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="stmt-text">I am here, in this space, because part of me already knows it is time.</span>
+    </div>
+  </div>
+ 
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <p class="cta-note">Check every statement that is true. Then let your score speak.</p>
+    <button class="btn-results" onclick="showResults()">See My Results</button>
+  </div>
+</div>
+ 
+<!-- RESULTS -->
+<div class="results-panel" id="resultsSection">
+  <div id="resultCard" class="result-card"></div>
+ 
+  <div class="subscribe-block">
+    <p>Enjoyed this assessment? Subscribe to <strong>The After Chapter newsletter</strong>, where we help you look beyond your title, identify where you are in your arc, and start listening to what is actually true. Join us for conversations, workshops, and live events designed for exactly where you are right now.</p>
+    <a href="https://the-after-chapter-newsletter.beehiiv.com" target="_blank" class="btn-subscribe">Subscribe to the Newsletter</a>
+  </div>
+ 
+  <div class="oprah-block">
+    <p class="oprah-eye">On the stages of knowing</p>
+    <p class="oprah-q">&ldquo;Life speaks to you first in whispers. If you ignore the whisper, it becomes a pebble. If you ignore the pebble, it becomes a brick. If you ignore the brick, it becomes a wall.&rdquo;</p>
+    <p class="oprah-attr">&mdash; Oprah Winfrey</p>
+  </div>
+ 
+  <div class="next-block">
+    <p class="next-title">What to do with this</p>
+    <div class="next-item">
+      <div class="next-num">1</div>
+      <p class="next-txt">Listen to <strong>The After Chapter podcast</strong> &mdash; conversations built for exactly where you are right now. Find us wherever you listen to podcasts.</p>
+    </div>
+    <div class="next-item">
+      <div class="next-num">2</div>
+      <p class="next-txt">Explore more at <a href="https://linktr.ee/afterchapterpodcast" target="_blank">linktr.ee/afterchapterpodcast</a> or subscribe to <a href="https://the-after-chapter-newsletter.beehiiv.com" target="_blank">our newsletter</a>.</p>
+    </div>
+    <div class="next-item">
+      <div class="next-num">3</div>
+      <p class="next-txt">Share this assessment with someone in your circle who you suspect has been ignoring the whisper.</p>
+    </div>
+  </div>
+ 
+  <div style="text-align:center">
+    <button class="btn-retake" onclick="retake()">Retake the Assessment</button>
+  </div>
+</div>
+ 
+<!-- FOOTER -->
+<footer class="qs-footer">
+  <p>The After Chapter &nbsp;&middot;&nbsp; <a href="https://linktr.ee/afterchapterpodcast">linktr.ee/afterchapterpodcast</a> &nbsp;&middot;&nbsp; <a href="https://the-after-chapter-newsletter.beehiiv.com">Newsletter</a></p>
+  <p style="margin-top:6px">&ldquo;Listening for the Quiet Signals&rdquo; is a proprietary framework. All rights reserved. &copy; 2026</p>
+</footer>
+ 
+<script>
+const STAGES = [
+  {range:[0,5],label:"Stage 1",name:"The Whisper",color:"#0D6B54",desc:"Something is asking for your attention &mdash; quietly. You may be tempted to explain it away. The fact that you are paying attention at all is more than most people allow themselves. Stay here. Keep listening."},
+  {range:[6,10],label:"Stage 2",name:"The Nudge",color:"#B07315",desc:"The signals are becoming harder to dismiss. The transition may have already started &mdash; you just have not named it yet. This stage requires honesty more than it requires a plan. Give yourself permission to know what you know."},
+  {range:[11,14],label:"Stage 3",name:"The Alarm",color:"#8B3520",desc:"Multiple systems are telling you the same thing. This is not coincidence. The question is no longer whether something needs to change &mdash; it is what you are willing to do with that knowledge. You are not behind. You are awake."},
+  {range:[15,30],label:"Stage 4",name:"Code Red &nbsp;&middot;&nbsp; You Knew It All Along",color:"#8B2020",desc:"You did not miss the signs. You survived them. Like Dorothy, you had what you needed the whole time &mdash; you just had not been given permission to use it. What you are feeling is not weakness. It is the result of operating in an environment that was not built for you, for longer than was sustainable."}
+];
+ 
+let score = 0;
+ 
+function toggle(el){
+  el.classList.toggle('checked');
+  score = document.querySelectorAll('.statement.checked').length;
+  document.getElementById('scoreFill').style.width = Math.min((score/30)*100,100)+'%';
+  document.getElementById('scoreCount').textContent = score;
+}
+ 
+function showResults(){
+  const stage = STAGES.find(s => score >= s.range[0] && score <= s.range[1]);
+  document.getElementById('resultCard').innerHTML = `
+    <div class="result-header" style="background:${stage.color}">
+      <p class="result-stage-label">${stage.label} &nbsp;&middot;&nbsp; ${score} signal${score!==1?'s':''} checked</p>
+      <p class="result-stage-name">${stage.name}</p>
+    </div>
+    <div class="result-body">${stage.desc}</div>
+  `;
+  document.getElementById('assessmentSection').style.display='none';
+  const r = document.getElementById('resultsSection');
+  r.classList.add('visible');
+  r.scrollIntoView({behavior:'smooth',block:'start'});
+}
+ 
+function retake(){
+  document.querySelectorAll('.statement.checked').forEach(el=>el.classList.remove('checked'));
+  score=0;
+  document.getElementById('scoreFill').style.width='0%';
+  document.getElementById('scoreCount').textContent='0';
+  document.getElementById('assessmentSection').style.display='block';
+  document.getElementById('resultsSection').classList.remove('visible');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
